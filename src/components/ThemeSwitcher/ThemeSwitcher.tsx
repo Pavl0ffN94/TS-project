@@ -1,9 +1,9 @@
-import { useCallback, useEffect, useState } from 'react';
+import { useCallback, useEffect, useState, memo } from 'react';
 import { ReactComponent as SunIcon } from 'assets/icon-sun.svg';
 import { ReactComponent as MoonIcon } from 'assets/icon-moon.svg';
 import styles from './ThemeSwitcher.module.scss';
 
-export const ThemeSwitcher = () => {
+ const ThemeSwitcherImpl = () => {
   const [isDark, setDark] = useState(false)
 
   const themeText = isDark ? 'Light' : 'Dark';
@@ -25,3 +25,5 @@ return (
   </div>
 )
 }
+
+export const ThemeSwitcher = memo(ThemeSwitcherImpl)

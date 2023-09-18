@@ -1,7 +1,8 @@
+import { memo } from 'react';
 import { ThemeSwitcher } from 'components/ThemeSwitcher';
 import styles from './TheHeader.module.scss';
 
-export const TheHeader = () => {
+ const TheHeaderImpl = () => {
  return (
   <div className={styles.header} >
     <div className={styles.logo}>
@@ -11,3 +12,5 @@ export const TheHeader = () => {
   </div>
 );
 } 
+
+export const TheHeader= memo(TheHeaderImpl)

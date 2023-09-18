@@ -1,9 +1,18 @@
+import { memo } from 'react';
 import styles from './UserCard.module.scss';
+import {UserStat} from 'components/UserStat';
+import {LocalGithubUser} from 'types';
 
-interface UserCardProps { }
+interface UserCardProps extends LocalGithubUser { }
 
-export const UserCard = ({ }: UserCardProps) => (
+const UserCardImpl = (props: UserCardProps) => (
   <div className={styles.userCard} >
-    UserCard Component
+    <UserStat
+    repos={props.repos}
+    followers={props.followers}
+    following={props.following}
+     />
   </div>
 );
+
+export  const UserCard = memo(UserCardImpl)
